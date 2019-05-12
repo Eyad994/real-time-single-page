@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ReplyResource;
 use App\Model\Question;
 use App\Model\Reply;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Symfony\Component\HttpFoundation\Response;
 
 class ReplyController extends Controller
@@ -13,7 +15,8 @@ class ReplyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Question $question
+     * @return AnonymousResourceCollection
      */
     public function index(Question $question)
     {
@@ -39,7 +42,7 @@ class ReplyController extends Controller
      *
      * @param Question $question
      * @param Reply $reply
-     * @return Reply we should add 2 arg to method show to cuz the api looks like
+     * @return ReplyResource we should add 2 arg to method show to cuz the api looks like
      *  api/question/{question}/reply/{reply}  so we should pass question and reply
      */
     public function show(Question $question, Reply $reply)
@@ -65,6 +68,7 @@ class ReplyController extends Controller
      *
      * @param Reply $reply
      * @return \Illuminate\Http\Response
+     * @throws Exception
      */
     public function destroy(Question $question, Reply $reply)
     {
