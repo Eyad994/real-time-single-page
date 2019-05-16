@@ -12,11 +12,14 @@
             <v-toolbar-title>DoMiracle</v-toolbar-title>
 
             <v-spacer></v-spacer>
-            <v-btn flat>Forum</v-btn>
+            <router-link to="/forum">
+                <v-btn flat>Forum</v-btn>
+            </router-link>
             <v-btn flat>Ask Question</v-btn>
             <v-btn flat>Category</v-btn>
-            <v-btn flat>Login</v-btn>
-
+            <router-link to="/login">
+                <v-btn flat>Login</v-btn>
+            </router-link>
 <!--            <v-btn icon>-->
 <!--                <v-icon>search</v-icon>-->
 <!--            </v-btn>-->
